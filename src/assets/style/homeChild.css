@@ -1,0 +1,12 @@
+#display{
+  height: 75px;
+  max-width: 500px;
+  border: 2px solid#617bff;
+  border-radius: 4px;
+  margin-left: 31%;
+  overflow: hidden;
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-align: left;
+  padding: 5px;
+}

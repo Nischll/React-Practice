@@ -1,0 +1,54 @@
+/* regular css */
+.navbar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  padding: 0 8px;
+}
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+a{
+  text-decoration: none;
+}
+
+.text-box{
+  position: relative;
+  /* float: right;
+  right: 1.2rem;
+  top: 2rem; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.text-box input{
+  height: 25px;
+  width: 500px;
+  padding: 6px;
+  border-radius: 50px;
+  font-size: 1.2rem; 
+}
+.text-box  input::placeholder{
+  font-size: 1.1rem; 
+}
+/* .text-box form input[text]{
+  font-size: ;
+} */
+button{
+  padding: 10px 20px; 
+  border-radius: 12px; 
+  border: none; 
+  font-size: 1.2rem; 
+  background-color: #2196F3; 
+  color: #fff;
+  margin: none;
+  cursor: pointer;
+}
+
+/* FOR MODE */

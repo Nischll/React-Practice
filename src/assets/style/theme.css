@@ -1,0 +1,35 @@
+/* FOR THEME MODE    */
+.container-wrapper{
+  position: relative;
+  background-color: white;
+  height: 100vh;
+  /* color: black; */
+}
+.container-wrapper.dark{
+  background-color: #333;
+  color: white;
+  height: 100vh;
+  & h1{
+    color: rgb(255, 236, 161);
+  }
+  & input[type="text"]{
+    background-color: #4f4d4d;
+    color: white;
+    border: 1px solid rgb(184, 184, 184);
+  }
+  & input[type="text"]::placeholder{
+    color: white;
+  }
+  & .nameList, .emailList{
+    border: 1px solid white;
+  }
+
+  & button{
+    background-color: rgb(80, 203, 240);
+  }
+}
+.container-wrapper.light{
+  height: 100vh;
+  background-color: white;
+  color: rgb(32, 31, 31);
+}
