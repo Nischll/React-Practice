@@ -16,6 +16,7 @@ function Navbar () {
 
   // FOR THEME MODE
   function modeFn () {
+    // e.stopPropagation();
     const currentTheme = theme;
     if (currentTheme === 'default' || currentTheme === 'dark') {
       setTheme ('light');
@@ -30,19 +31,19 @@ function Navbar () {
       <div className='navbar'>
         <div className='container'>
           <Link to ="/components/home">
-            <h1>Home</h1>
+            <h2>Home</h2>
           </Link>
 
           <Link to ="/components/about">
-            <h1>About</h1>
+            <h2>About</h2>
           </Link>
 
-          <Link to ="/components/contact">
-            <h1>Contact</h1>
+          <Link to ="/components/login">
+            <h2>Login</h2>
           </Link>
 
           <Link to ="/components/demo">
-            <h1>Demo</h1>
+            <h2>Demo</h2>
           </Link>
         </div>
         <div className='text-box'>
@@ -54,9 +55,9 @@ function Navbar () {
         </div>
         
       </div>
-    
-      <Outlet/>
+      <  Outlet/>
     </div>
+    
     {/* <footer><h5>This is footer.</h5></footer> */}
     </>
   )

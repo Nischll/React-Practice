@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react';
+import {Link} from 'react-router-dom';
 import "../assets/style/demo.css";
 
 function Demo() {
-  const [count, setCount] = useState(0);
+  
   const [data, setData] = useState([]);
 
   useEffect(() => {
     setInterval(() => {
       async function dataFetch () {
-        const response = await fetch(`https://jsonplaceholder.typicode.com/users/`);
+        const response = await fetch(`https://jsonplaceholder.typicode.com/users`);
   
         // covert fetched data into json
         const convertedData = await response.json();
@@ -23,10 +24,9 @@ function Demo() {
 
   return (
     <div>
-      <p>You clicked {count} times</p>
-      <button onClick={() => setCount(count + 1)}>
-        Click me
-      </button>
+      <Link to="/components/nextDemo">
+        <button>Click me</button>
+      </Link>
 
       {/* FETCHED DATA LIST */}
 
@@ -46,14 +46,6 @@ function Demo() {
           </ol>
         </div>
       </div>
-
-      {/* {data && (
-        <div>
-          <h2>{data.name}</h2>
-          <p>Email: {data.email}</p>
-          <p>Phone: {data.phone}</p>
-        </div>
-      )} */}
     </div>
   );
 }

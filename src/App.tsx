@@ -7,10 +7,11 @@ import React, {useState} from 'react';
 
 const Home = lazy(() => import ("./components/home"));
 const About = lazy(() => import("./components/about"));
-const Contact = lazy(() => import("./components/contact"));
+const Login = lazy(() => import("./components/login"));
 const Navbar = lazy(() => import("./components/navbar"));
 const Child = lazy(() => import("./components/homeChild"));
 const Demo = lazy(() => import("./components/demoComponent"));
+const NextDemo = lazy (() => import("./components/nextDemoComponent"));
 
 
 export const newContext = React.createContext();
@@ -52,12 +53,18 @@ function App() {
             },
             
             {
-              path:"/components/contact",
-              element:<Suspense fallback = {<h2>Contact Loading.....</h2>}><Contact/></Suspense>
+              path:"/components/login",
+              element:<Suspense fallback = {<h2>Account Loading.....</h2>}><Login/></Suspense>
             },
+
             {
               path:"/components/demo",
               element:<Suspense fallback = {<h2>demo compo loading.............</h2>}><Demo/></Suspense>
+            },
+
+            {
+              path:"/components/nextDemo",
+              element:<Suspense fallback = {<h2>loading.............</h2>}><NextDemo/></Suspense>
             }
           ]
         }        
