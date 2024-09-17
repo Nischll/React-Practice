@@ -4,6 +4,8 @@ import '../assets/style/login.css'
 import {useForm} from 'react-hook-form';
 import {z} from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useMutation } from '@tanstack/react-query';
+import axios from 'axios';
 
 function Login () {
 
@@ -13,12 +15,24 @@ function Login () {
     password:z.string().min(3, {message:'password must contain atleast three character'})
   });
 
+  // FOR POSTING DATA
+  const postingData = useMutation({
+    mutationKey:["save"],
+    mutationFn(data:any){
+      return axios.post('https://667d2474297972455f63aec9.mockapi.io/api/crud/crud', data)
+    }
+  });
+
+  // FOR FORM VALIDATION  
   const {register, handleSubmit, formState:{errors}, reset} = useForm({
     resolver: zodResolver(schema),
   });
 
-  const submit = (data) => {
-    console.log(data);
+  // SUBMITTING FORM DATA
+  const submit = (data:any) => {
+    const {password, ...safeData} = data;
+    console.log(safeData);
+    postingData.mutate(data);
     reset();  
   };
 
@@ -45,11 +59,20 @@ function Login () {
       </main>
     </div>
     <footer>
+      <div className='footerContainer'>
         <Link to="/">
           <button>
             Back to main page        
           </button>
         </Link>
+        <Link to="/components/loginDetails">
+          <button>
+            Show login details       
+          </button>
+        </Link>
+
+      </div>
+        
       </footer>
     </>
   )

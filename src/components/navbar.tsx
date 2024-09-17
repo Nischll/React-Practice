@@ -55,7 +55,7 @@ function Navbar () {
         </div>
         
       </div>
-      <  Outlet/>
+      <Outlet/>
     </div>
     
     {/* <footer><h5>This is footer.</h5></footer> */}

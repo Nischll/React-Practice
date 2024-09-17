@@ -31,7 +31,13 @@ form label{
 }
 
 footer{
-  position: absolute;
-  left: 4px;
-  bottom: 2px;
+  position: sticky;
+  /* left: 19px;
+  bottom: 15px; */
+}
+footer .footerContainer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px;
 }
