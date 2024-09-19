@@ -8,21 +8,22 @@
   align-items: center;
   flex-direction: column;
   gap: 10px;
+  margin-top: 20px;
+  flex-wrap: nowrap;
 }
 .tableContainer{
   display: flex;
   justify-content: center;
   /* align-items: center; */
-  margin-top: 20px;
   overflow-y: scroll;
   height: 400px;
-  width: 600px;
-  /* background-color: aqua; */
 }
 table{
   position: relative;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
+  margin-right: 15px;
+  height: fit-content;
 }
 table, th, td {
   /* border: 1px solid black; */
@@ -34,11 +35,15 @@ th, td {
 tr:nth-child(even) {
   background-color: #D6EEEE;
 }
-tr {
+tr{
   border-bottom: 1px solid rgb(54, 161, 255);
 }
-/* footer{
-  position: fixed;
-  left: 50%;
-  bottom: 10px;
-} */
+td button{
+  font-size: 0.8rem;
+  padding: 8px;
+  background-color: red;
+  color: white;
+}
+td button:active{
+  background-color: rgb(231, 0, 0);
+}

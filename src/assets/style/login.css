@@ -4,6 +4,7 @@
   justify-content: center;
   align-items: center;
   padding: 20px 0px;
+  flex-wrap: wrap;
 }
 
 .formContainer{
@@ -13,7 +14,7 @@
   align-items: center;
   flex-direction: column;
   width: 400px;
-  height: 300px;
+  height: 350px;
   /* background-color: aqua; */
   border: 1px solid rgb(65, 154, 255);
   border-radius: 8px;
@@ -24,10 +25,29 @@
   flex-direction: column;
   gap: 20px;
 }
+.email, .password{
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  flex-direction: column;
+  gap: 5px;
+}
+form input{
+  height: 25px;
+  font-size: 1rem;
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 2px 2px 2px 4px;
+}
+form input::placeholder{
+  font-size: 0.8rem;
+}
 form label{
   font-size: 1.8rem;
   font-weight: 600;
-  
+}
+span{
+  color: red;
 }
 
 footer{

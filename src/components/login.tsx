@@ -1,11 +1,14 @@
 import {Link} from 'react-router-dom';
-// import '../assets/style/theme.css';
 import '../assets/style/login.css'
 import {useForm} from 'react-hook-form';
 import {z} from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
+import {toast, ToastContainer} from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
+import '../assets/style/toast.css';
+
 
 function Login () {
 
@@ -34,6 +37,7 @@ function Login () {
     console.log(safeData);
     postingData.mutate(data);
     reset();  
+    toast.success('Form Submitted Successfully!');
   };
 
   return (
@@ -43,20 +47,20 @@ function Login () {
         {/* <button>Login Here</button> */}
         <form onSubmit={handleSubmit(submit)}>       
           <section className='email'>
-            <label>Email:</label>
-            <input type="text" {...register('email')} />
+            <label>Email</label>
+            <input type="text" placeholder='abc@gmail.com' {...register('email')} />
             {errors.email && <span>{errors.email.message}</span>}
           </section>
 
           <section className='password'>
-            <label>Password:</label>
-            <input type="password" {...register('password')}/>
-            {errors.password && <p>{errors.password.message}</p>}
+            <label>Password</label>
+            <input type="password" placeholder='password here' {...register('password')}/>
+            {errors.password && <span>{errors.password.message}</span>}
           </section>
-
           <button>Login</button>
         </form>
       </main>
+      <ToastContainer/>
     </div>
     <footer>
       <div className='footerContainer'>
@@ -70,10 +74,8 @@ function Login () {
             Show login details       
           </button>
         </Link>
-
-      </div>
-        
-      </footer>
+      </div>   
+      </footer>   
     </>
   )
 }

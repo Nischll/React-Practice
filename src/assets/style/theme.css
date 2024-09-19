@@ -23,9 +23,20 @@
   & .nameList, .emailList{
     border: 1px solid white;
   }
-
   & button{
     background-color: rgb(80, 203, 240);
+  }
+  & tr:nth-child(even) {
+    background-color: #999999;
+  }
+  & td button{
+    font-size: 0.8rem;
+    padding: 8px;
+    background-color: rgb(206, 12, 12);
+    color: white;
+  }
+  & td button:active{
+    background-color: rgb(149, 11, 11);
   }
 }
 .container-wrapper.light{
