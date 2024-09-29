@@ -10,19 +10,20 @@ function Navbar () {
   let {theme, setTheme} = useContext(modeContext);
 
   // FOR INPUT DISPLAY
-  function textBox (e) {
+  function textBox (e:any) {
     setInput(e.target.value);
   };
 
   // FOR THEME MODE
   function modeFn () {
-    // e.stopPropagation();
+    
     const currentTheme = theme;
     if (currentTheme === 'default' || currentTheme === 'dark') {
       setTheme ('light');
     }else {
       setTheme ('dark');
     }
+    // e.stopPropagation();
   };
 
   return (
@@ -51,7 +52,7 @@ function Navbar () {
             <input type="text" id='text-box' placeholder='write sthg' autoComplete='off' onKeyUp={textBox}/>
             {/* <button type='submit'>save</button> */}
           </form> 
-          <button id='mode' onClick={modeFn}>Mode</button>
+          <button className='hover:bg-sky-500 active:bg-sky-700' id='mode' onClick={modeFn}>Mode</button>
         </div>
         
       </div>

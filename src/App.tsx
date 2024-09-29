@@ -3,6 +3,10 @@ import {RouterProvider, createBrowserRouter} from 'react-router-dom';
 import {lazy, Suspense} from 'react';
 import React, {useState} from 'react';
 import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
+import {ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import './assets/style/toast.css';
+
 // import ThemeProvider from './components/themeContext';
 // import ThemeComponent from './components/themeComponent';
 
@@ -14,7 +18,6 @@ const Child = lazy(() => import("./components/homeChild"));
 const Demo = lazy(() => import("./components/demoComponent"));
 const NextDemo = lazy (() => import("./components/nextDemoComponent"));
 const LoginDetails = lazy(() => import("./components/loginDetails"));
-
 
 export const newContext = React.createContext();
 export const modeContext = React.createContext();
@@ -30,6 +33,7 @@ function App() {
       <QueryClientProvider client={Client}>
       <modeContext.Provider value = {{theme, setTheme}}>
       <newContext.Provider value={{input, setInput}}>
+      <ToastContainer/>
       <RouterProvider router = {createBrowserRouter([
         {
           path:"/",
