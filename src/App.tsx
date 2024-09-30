@@ -6,6 +6,8 @@ import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
 import {ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './assets/style/toast.css';
+import './assets/style/theme.css';
+import { ConfirmProvider } from 'material-ui-confirm';
 
 // import ThemeProvider from './components/themeContext';
 // import ThemeComponent from './components/themeComponent';
@@ -18,6 +20,7 @@ const Child = lazy(() => import("./components/homeChild"));
 const Demo = lazy(() => import("./components/demoComponent"));
 const NextDemo = lazy (() => import("./components/nextDemoComponent"));
 const LoginDetails = lazy(() => import("./components/loginDetails"));
+const Edit = lazy(() => import ('./components/editDetails'));
 
 export const newContext = React.createContext();
 export const modeContext = React.createContext();
@@ -31,6 +34,7 @@ function App() {
   return (
     <>
       <QueryClientProvider client={Client}>
+      <ConfirmProvider>
       <modeContext.Provider value = {{theme, setTheme}}>
       <newContext.Provider value={{input, setInput}}>
       <ToastContainer/>
@@ -79,12 +83,18 @@ function App() {
             {
               path:"/components/loginDetails",
               element:<Suspense fallback = {<h2>loading.............</h2>}><LoginDetails/></Suspense>
+            },
+
+            {
+              path:"/components/editDetails/:id",
+              element:<Suspense fallback = {<h2>loading.............</h2>}><Edit/></Suspense>
             }
           ]
         }        
       ])}/>
       </newContext.Provider>
       </modeContext.Provider>
+      </ConfirmProvider>
       </QueryClientProvider>
     </>
   )
