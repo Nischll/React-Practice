@@ -22,7 +22,7 @@ function UserDetails(){
         title:'Are you sure?',
         description: 'You are going to delete this user!!',
         confirmationText:'Delete now',
-        cancellationText :'not now',
+        cancellationText :'Not now',
         dialogProps:{
           // Confirmation Box
           maxWidth:'xs',
@@ -94,17 +94,17 @@ function UserDetails(){
       <div className='relative h-[600px] flex justify-center item-center flex-col gap-[5px] mt-2 flex-wrap'>
         <main className="relative flex justify-center item-center w-full h-[500px] overflow-y-scroll mb-[15px]">
           <table className='relative h-[415px] w-full border-collapse'>
-            <thead>
+            <thead className=''>
               <tr className=' border-b-2 border-indigo-800'>
-                <th className='text-xl'>Id</th>
-                <th className='text-xl'>Name</th>
+                <th className='text-xl'>S.N</th>
+                <th className='text-xl'>Fullname</th>
                 <th className='text-xl'>Email</th>
                 <th className='text-xl'>Password</th>
                 <th className='text-xl'>Actions</th>
               </tr>
             </thead>
 
-            <tbody>
+            <tbody className=''>
               {data?.data.map((user:any, index: any) => (
                 <tr key = {user.id} className=" border-b-2 border-indigo-800 even:bg-[#D6EEEE]">
                   <td className="px-[30px] py-[10px]">{index + 1}</td>
