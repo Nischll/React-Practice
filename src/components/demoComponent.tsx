@@ -58,9 +58,9 @@ function Demo() {
 
   return (
     <div>
-      <Link to="/components/nextDemo">
+      {/* <Link to="/components/nextDemo">
         <button>Click me</button>
-      </Link>
+      </Link> */}
 
       <main className="relative flex justify-center  w-full h-[450px] overflow-y-scroll mb-[15px] mt-2"> 
         <table className='relative h-fit w-full border-collapse'>
@@ -94,13 +94,13 @@ function Demo() {
         </table>
       </main>
 
-      <div className='flex flex-wrap justify-between item-center '>
-        <button onClick={() => setPageIndex(old => Math.max(old - 1, 0))} disabled={pageIndex === 0} className='hover:bg-sky-500 active:bg-sky-700 px-[20px] py-[2px]'>
-        &lArr;
+      <div className='flex flex-wrap justify-between item-center text-center'>
+        <button onClick={() => setPageIndex(old => Math.max(old - 1, 0))} disabled={pageIndex === 0} className='bg-slate-600 hover:bg-slate-500 active:bg-slate-700 px-[10px] py-[2px]'>
+        &lt; Previous
         </button>
-        <p>Page {pageIndex + 1} of {pageIndex}</p>
-        <button onClick={() => setPageIndex(old => old + 1)} disabled={table.getRowModel().rows.length < pageSize}  className='hover:bg-sky-500 active:bg-sky-700'>
-        &rArr; 
+        <span>Page {pageIndex + 1} of {3}</span>
+        <button onClick={() => setPageIndex(old => old + 1)} disabled={table.getRowModel().rows.length < pageSize}  className='bg-lime-500 hover:bg-lime-600 active:bg-lime-700 px-[25px]'>
+        Next &gt; 
         </button>
       </div>
       
