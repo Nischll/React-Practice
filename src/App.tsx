@@ -21,6 +21,8 @@ const Demo = lazy(() => import("./components/demoComponent"));
 const NextDemo = lazy (() => import("./components/nextDemoComponent"));
 const LoginDetails = lazy(() => import("./components/loginDetails"));
 const Edit = lazy(() => import ('./components/editDetails'));
+const BasicTable = lazy(() => import ('./components/basicTable'));
+const GenericTable = lazy(() => import('./components/genericTable'));
 
 export const newContext = React.createContext();
 export const modeContext = React.createContext();
@@ -88,6 +90,16 @@ function App() {
             {
               path:"/components/editDetails/:id",
               element:<Suspense fallback = {<h2>loading.............</h2>}><Edit/></Suspense>
+            },
+
+            {
+              path:"/components/table",
+              element:<Suspense><BasicTable/></Suspense>
+            },
+
+            {
+              path:"/components/genericTable",
+              element:<Suspense><GenericTable/></Suspense>
             }
           ]
         }        
