@@ -1,15 +1,29 @@
 import GenericTable from './genericTable';
+import ActionButtons from './actionButtons';
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
 
 const fetchUserData = async () => {
   const response = await fetch('https://667d2474297972455f63aec9.mockapi.io/api/crud/crud');
   return await response.json();
 };
 
-const UserTable = () => {
+function UserTable() {
+
+  const { data, refetch } = useQuery({
+    queryKey: ['get'],
+    queryFn: fetchUserData,
+  });
+
+  const handleDelete = async (id: number) => {
+    await axios.delete(`https://667d2474297972455f63aec9.mockapi.io/api/crud/crud/${id}`);
+    refetch();
+  };
+
   const columns = [
     {
       accessorKey: 'id',
-      header: 'S.no',
+      header: 'S.No',
       cell: ({row}) => {
         return row.index + 1;
       },
@@ -40,13 +54,25 @@ const UserTable = () => {
       enableSorting: false,
       enableColumnFilter: false
     },
+    {
+      header: 'Actions',
+      enableSorting: false,
+      enableColumnFilter: false,
+      cell: ({row}) => {
+        const userId = row.original.id;
+        return (
+          <ActionButtons userId={userId} onDelete={handleDelete}/>
+        )
+      }
+    },
   ];
 
   return (
     <GenericTable
       columns={columns}
       fetchData={fetchUserData}
-      pageSize={10}
+      pageSize={15}
+      data={data?.data || []}
     />
   );
 };
