@@ -17,10 +17,10 @@ const ActionButtons = ({ userId, onDelete }) => {
         },
       });
       await onDelete(userId);
-      toast.success('User deleted successfully!');
+      toast.success('User deleted successfully!', {autoClose:2000});
     } catch (error) {
       console.error('Failed to delete!!', error);
-      toast.error('Failed to delete user!');
+      toast.error('Failed to delete user!', {autoClose:2000});
     }
   };
 

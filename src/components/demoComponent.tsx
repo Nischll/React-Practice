@@ -71,7 +71,7 @@ function UserTable() {
     <GenericTable
       columns={columns}
       fetchData={fetchUserData}
-      pageSize={15}
+      pageSize={6}
       data={data?.data || []}
     />
   );

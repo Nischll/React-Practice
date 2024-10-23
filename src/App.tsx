@@ -9,9 +9,6 @@ import './assets/style/toast.css';
 import './assets/style/theme.css';
 import { ConfirmProvider } from 'material-ui-confirm';
 
-// import ThemeProvider from './components/themeContext';
-// import ThemeComponent from './components/themeComponent';
-
 const Home = lazy(() => import ("./components/home"));
 const About = lazy(() => import("./components/about"));
 const Login = lazy(() => import("./components/login"));
@@ -22,6 +19,7 @@ const NextDemo = lazy (() => import("./components/nextDemoComponent"));
 const LoginDetails = lazy(() => import("./components/loginDetails"));
 const Edit = lazy(() => import ('./components/editDetails'));
 const BasicTable = lazy(() => import ('./components/basicTable'));
+const Todo = lazy(() =>  import('./components/todo'))
 
 export const newContext = React.createContext();
 export const modeContext = React.createContext();
@@ -94,6 +92,10 @@ function App() {
             {
               path:"/components/table",
               element:<Suspense><BasicTable/></Suspense>
+            },
+            {
+              path:"/components/todo",
+              element:<Suspense><Todo/></Suspense>
             },
           ]
         }        

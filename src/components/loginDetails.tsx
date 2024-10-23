@@ -104,7 +104,7 @@ function UserDetails(){
               </tr>
             </thead>
 
-            <tbody className=''>
+            <tbody>
               {data?.data.map((user:any, index: any) => (
                 <tr key = {user.id} className=" border-b-2 border-indigo-800 even:bg-[#D6EEEE]">
                   <td className="px-[30px] py-[10px]">{index + 1}</td>

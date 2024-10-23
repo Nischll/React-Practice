@@ -7,17 +7,17 @@ function Home () {
   return (
     <>
     <h2>Welcome Home!!!!</h2>
-    <div>
+    {/* <div>
     <Link to="/">
       <button type='button'>
        Back to main page      
       </button>
     </Link>
-    </div>
+    </div> */}
 
     <Link to="/components/home/homeChild">
       <button type='button'>
-        childPage    
+        Display Component   
       </button>
     </Link>
     <Outlet/>

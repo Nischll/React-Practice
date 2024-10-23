@@ -2,7 +2,7 @@ import '../assets/style/homeChild.css'
 import {useContext} from 'react';
 import {newContext} from '../App';
 
-function Child () {
+function Display () {
   const{input}= useContext(newContext);
   return (
     <>
@@ -12,4 +12,4 @@ function Child () {
   )
 }
 
-export default Child;
+export default Display;
