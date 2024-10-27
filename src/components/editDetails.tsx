@@ -27,7 +27,7 @@ function Edit () {
     },
     onSuccess() {
       toast.success('Form updated successfully!', { autoClose: 2000 });
-      navigate('/components/loginDetails');
+      navigate('/components/demo');
     },
     onError() {
       toast.error('Error updating form!', { autoClose: 2000 });
@@ -145,7 +145,7 @@ return (
 
           <section className='flex justify-between item-center'>
             <button className='bg-green-600 hover:bg-green-700 active:bg-green-800 text-center px-[45px]'>Update</button>
-            <Link to="/components/loginDetails">
+            <Link to="/components/demo">
               <button className='bg-red-600 hover:bg-red-700 active:bg-red-800 text-center px-[15px]'>Cancel</button>
             </Link>
           </section>

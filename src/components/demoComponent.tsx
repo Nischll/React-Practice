@@ -1,23 +1,21 @@
 import GenericTable from './genericTable';
 import ActionButtons from './actionButtons';
-import { useQuery } from '@tanstack/react-query';
+// import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
-
-const fetchUserData = async () => {
-  const response = await fetch('https://667d2474297972455f63aec9.mockapi.io/api/crud/crud');
-  return await response.json();
-};
 
 function UserTable() {
 
-  const { data, refetch } = useQuery({
-    queryKey: ['get'],
-    queryFn: fetchUserData,
-  });
+  const fetchUserData = async () => {
+    const response = await fetch('https://667d2474297972455f63aec9.mockapi.io/api/crud/crud');
+    return response.json();
+  };
 
-  const handleDelete = async (id: number) => {
-    await axios.delete(`https://667d2474297972455f63aec9.mockapi.io/api/crud/crud/${id}`);
-    refetch();
+  const handleDelete = async (userId: number) => {
+    try {
+      await axios.delete(`https://667d2474297972455f63aec9.mockapi.io/api/crud/crud/${userId}`);
+    } catch (error) {
+      console.error('Failed to delete user!', error);
+    }
   };
 
   const columns = [
@@ -72,7 +70,7 @@ function UserTable() {
       columns={columns}
       fetchData={fetchUserData}
       pageSize={6}
-      data={data?.data || []}
+      // data={data}
     />
   );
 };
