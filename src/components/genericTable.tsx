@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useReactTable, getPaginationRowModel, getCoreRowModel, flexRender, getSortedRowModel, getFilteredRowModel } from '@tanstack/react-table';
+// import {useQuery} from '@tanstack/react-query'
+// import axios from 'axios';
 
 function GenericTable({ fetchData, columns, pageSize }) {
   const [data, setData] = useState([]);
@@ -19,7 +21,7 @@ function GenericTable({ fetchData, columns, pageSize }) {
       }
     }
     dataFetch();
-  }, []);
+  }, [data]);
 
   const table = useReactTable({
     columns,
@@ -34,7 +36,7 @@ function GenericTable({ fetchData, columns, pageSize }) {
       pagination: {
         pageIndex,
         pageSize: pageSize
-      }
+      },
     },
     onSortingChange: setSorting,
     onColumnFiltersChange: setColumnFilters,
@@ -121,7 +123,7 @@ function GenericTable({ fetchData, columns, pageSize }) {
               table.nextPage();
             }}
             disabled={!table.getCanNextPage()}
-            className='flex justify-center item-center m-[6px] py-[1px] px-[6px] p-[4px] bg-green-600 hover:bg-green-700 active:bg-green-800'>
+            className='flex justify-center item-center m-[6px] py-[1px] px-[6px] p-[4px] bg-green-600 hover:bg-green-700 active:bg-green-800 cursor-pointer'>
             &gt;
           </button>
           <button

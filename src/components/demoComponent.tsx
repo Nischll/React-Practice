@@ -1,21 +1,25 @@
 import GenericTable from './genericTable';
 import ActionButtons from './actionButtons';
-// import { useQuery } from '@tanstack/react-query';
+import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
 
-function UserTable() {
+function UserTable() {  
 
   const fetchUserData = async () => {
-    const response = await fetch('https://667d2474297972455f63aec9.mockapi.io/api/crud/crud');
-    return response.json();
+    const response = await axios.get('https://667d2474297972455f63aec9.mockapi.io/api/crud/crud');
+    return response.data;
   };
 
-  const handleDelete = async (userId: number) => {
-    try {
-      await axios.delete(`https://667d2474297972455f63aec9.mockapi.io/api/crud/crud/${userId}`);
-    } catch (error) {
-      console.error('Failed to delete user!', error);
+  // const {refetch} = useQuery()
+  const mutation = useMutation({
+    mutationKey:["delete"],
+    mutationFn(userId){
+      return axios.delete(`https://667d2474297972455f63aec9.mockapi.io/api/crud/crud/${userId}`);
     }
+  })
+
+  const handleDelete = async (userId:any) => {
+    mutation.mutate(userId);
   };
 
   const columns = [
@@ -35,12 +39,12 @@ function UserTable() {
         const value = getValue();
         return !value ? <span className='text-red-600'>Null</span> : <span className='text-green-500'>{value}</span>
       },
-      // filterFn: 'includesString'
+      filterFn: 'includesString'
     },
     {
       accessorKey: 'email',
       header: 'Email',
-      // filterFn: 'includesString'
+      filterFn: 'includesString'
     },
     {
       accessorKey: 'password',

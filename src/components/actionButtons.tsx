@@ -11,7 +11,7 @@ const ActionButtons = ({ userId, onDelete }) => {
         title: 'Are you sure?',
         description: 'You are going to delete this user!!',
         confirmationText: 'Delete now',
-        cancellationText: 'Not now',
+        cancellationText: 'Not now',  
         dialogProps: {
           maxWidth: 'xs',
         },

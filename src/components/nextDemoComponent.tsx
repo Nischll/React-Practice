@@ -96,7 +96,8 @@
 
 
 import { useRef, useState } from 'react';
-
+// import UserList from './usememo';
+import Fibonacci from './usememo';
 function TimerComponent() {
   const [count, setCount] = useState(0);
   const timerRef = useRef(null);
@@ -115,11 +116,16 @@ function TimerComponent() {
   };
 
   return (
+    <>
     <div>
       <p>Count: {count}</p>
       <button onClick={startTimer}>Start</button>
       <button onClick={stopTimer}>Stop</button>
     </div>
+    {/* <UserList/> */}
+    <Fibonacci/>
+    </>
+    
   );
 }
 

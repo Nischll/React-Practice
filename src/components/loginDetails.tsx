@@ -10,7 +10,7 @@ function UserDetails(){
   const {data, refetch} = useQuery({
     queryKey:['get'],
     queryFn() {
-      return axios.get('https://667d2474297972455f63aec9.mockapi.io/api/crud/crud')
+      return axios.get('https://667d2474297972455f63aec9.mockapi.io/api/crud/crud');
     }
   });
 

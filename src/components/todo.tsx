@@ -1,4 +1,4 @@
-import { useState } from "react";
+// import { useState } from "react";
 
 // function TodoApp() {
 //   const [todos, setTodos] = useState(["Learn React"]);
@@ -27,21 +27,50 @@ import { useState } from "react";
 
 
 
-const TextInput = () => {
-  const [text, setText] = useState("");
+// const TextInput = () => {
+//   const [text, setText] = useState("");
 
-  const handleChange = (event) => {
-    setText(event.target.value);
-    // console.log(text);
-  };
+//   const handleChange = (event) => {
+//     setText(event.target.value);
+//     // console.log(text);
+//   };
+
+//   return (
+//     <>
+//     <input type="text" value={text} onChange={handleChange} placeholder="write sthg" className="border-2 border-slate-900"/>
+//     <h1 className="underline decoration-red-500 text-xl"><strong>Demo:</strong> {text}</h1>
+//     </>
+    
+//   );
+// };
+
+// export default TextInput;
+
+
+
+import { useState, useCallback } from 'react';
+import Child from "./usememo";
+function Parent() {
+  const [count, setCount] = useState(0);
+  const [showMessage, setShowMessage] = useState(false);
+
+  const toggleMessage = useCallback(() => {
+    setShowMessage((prev) => !prev);
+  }, []);
+
+  // function toggleMessage () {
+  //   setShowMessage((prev) => !prev);
+  // }
 
   return (
-    <>
-    <input type="text" value={text} onChange={handleChange} placeholder="write sthg" className="border-2 border-slate-900"/>
-    <h1 className="underline decoration-red-500 text-xl"><strong>Demo:</strong> {text}</h1>
-    </>
-    
+    <div>
+      <h2>Parent Component</h2>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>Increment Count</button>
+      <Child toggleMessage={toggleMessage} />
+      {showMessage && <p>Here’s a toggled message!</p>}
+    </div>
   );
-};
+}
 
-export default TextInput;
+export default Parent;
